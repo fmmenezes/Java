@@ -11,12 +11,12 @@ public class ContaCorrente {
 	}
 
 	public void saque(double valor) {
-		saldo -= valor;
+		saldo -= valor + 5;
 	}
 
 	public String toString() {
 		
-		return "Conta " + conta + ", Titular: " + titular + ", Saldo: $ " + saldo;
+		return "Conta " + conta + ", Titular: " + titular + ", Saldo: $ " + String.format("%.2f", saldo);
 	}
 
 }

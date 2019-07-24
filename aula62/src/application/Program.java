@@ -20,12 +20,13 @@ class Program {
 		int conta = sc.nextInt();
 		cc.conta = conta;
 		System.out.print("Informe o nome do titular: ");
-		String titular = sc.next();
+		sc.nextLine();
+		String titular = sc.nextLine();
 		cc.titular = titular;
 		System.out.print("Existe deposito inicial (y/n)? ");
 		
 		char flagDeposito = sc.next().charAt(0);
-		if (flagDeposito == 'Y') {
+		if (flagDeposito == 'Y' || flagDeposito == 'y') {
 			
 			System.out.print("Informe o valor do deposito: ");
 			valorDeposito = sc.nextDouble();
@@ -33,8 +34,25 @@ class Program {
 		}
 		
 		System.out.println();
-		//Continua a partir deste ponto 
+		
+		System.out.println("Dados da conta:");
 		System.out.println(cc);
+		System.out.println();
+		
+		System.out.print("Informe o valor do deposito: ");
+		valorDeposito = sc.nextDouble();
+		cc.deposito(valorDeposito);
+		System.out.println("Dados da conta atualizados: ");
+		System.out.println(cc);
+		
+		System.out.println();
+		
+		System.out.print("Informe o valor do saque: ");
+		double valorSaque = sc.nextDouble();
+		cc.saque(valorSaque);
+		System.out.println("Dados da conta atualizados: ");
+		System.out.println(cc);
+
 
 		sc.close();
 
