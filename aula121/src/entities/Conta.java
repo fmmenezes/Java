@@ -3,7 +3,7 @@ package entities;
 public class Conta {
 	private Integer numero;
 	private String titular;
-	private Double Saldo;
+	protected Double saldo;
 	
 	public Conta() {
 		
@@ -12,7 +12,7 @@ public class Conta {
 	public Conta(Integer numero, String titular, Double saldo) {
 		this.numero = numero;
 		this.titular = titular;
-		this.Saldo = saldo;
+		this.saldo = saldo;
 	}
 
 	public Integer getNumero() {
@@ -31,8 +31,8 @@ public class Conta {
 		this.titular = titular;
 	}
 
-	public Double getSaldo() {
-		return Saldo;
+	public Double getsaldo() {
+		return saldo;
 	}
 
 	//public void setSaldo(Double saldo) {
@@ -40,11 +40,11 @@ public class Conta {
 	//}
 	
 	public void saque(Double valor) {
-		Saldo -= valor;
+		saldo -= valor;
 	}
 	
 	public void deposito(Double valor) {
-		Saldo += valor;
+		saldo += valor;
 	}
 	
 }
