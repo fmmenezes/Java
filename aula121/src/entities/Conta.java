@@ -39,9 +39,9 @@ public class Conta {
 	//	Saldo = saldo;
 	//}
 	
-	public void saque(Double valor) {
-		saldo -= valor;
-	}
+		public void saque(Double valor) {
+			saldo -= valor + 5.0;
+		}
 	
 	public void deposito(Double valor) {
 		saldo += valor;
