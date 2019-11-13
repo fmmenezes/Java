@@ -24,6 +24,7 @@ public class Program {
 		List<Produto> lista = new ArrayList<>();
 		
 		System.out.println("Informe o caminho do arquivo: ");
+		
 		String caminhoDoArquivo = sc.nextLine();
 		
 		File arquivo = new File(caminhoDoArquivo);
