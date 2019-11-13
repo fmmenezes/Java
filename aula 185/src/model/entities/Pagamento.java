@@ -10,6 +10,7 @@ public class Pagamento {
 	}
 
 	public Pagamento(Double pagamento, Double taxa) {
+		
 		this.pagamento = pagamento;
 		this.taxa = taxa;
 	}
