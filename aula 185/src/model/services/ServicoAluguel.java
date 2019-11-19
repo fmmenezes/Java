@@ -1,6 +1,7 @@
 package model.services;
 
 import model.entities.AluguelCarro;
+import model.entities.Pagamento;
 
 public class ServicoAluguel {
 	
@@ -9,7 +10,7 @@ public class ServicoAluguel {
 	
 	private BrasilTaxaServico taxaServico;
 	
-	private ServicoAluguel() {
+	public ServicoAluguel() {
 		
 	}
 
@@ -22,6 +23,21 @@ public class ServicoAluguel {
 	}
 	
 	public void processaPagamento(AluguelCarro aluguelCarro) {
+		
+		long tempoInicio = aluguelCarro.getInicioLocacao().getTime();
+		long tempoFim = aluguelCarro.getFimLocacao().getTime();
+		double horasDif = (double)(tempoFim - tempoInicio) / 1000 / 60 / 60;
+		
+		double valorBruto;
+		if(horasDif < 12.0) {
+			valorBruto = Math.ceil(horasDif) * precoPorHora;
+		} else {
+			valorBruto = Math.ceil(horasDif / 24) * precoPorDia;
+		}
+		
+		double taxaPagamento = taxaServico.taxa(valorBruto);
+		
+		aluguelCarro.setPagamento(new Pagamento(valorBruto,taxaPagamento));
 		
 	}
 	
