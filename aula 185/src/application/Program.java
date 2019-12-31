@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 import model.entities.AluguelCarro;
 import model.entities.Veiculo;
+import model.services.BrasilTaxaServico;
+import model.services.ServicoAluguel;
 
 public class Program {
 
@@ -27,9 +29,19 @@ public class Program {
 		
 		AluguelCarro ac = new AluguelCarro(inicioDaLocacao, fimDaLocacao, new Veiculo(modeloDoCarro) );
 		
+		System.out.println("Informe o preço por hora: ");
+		double precoPorHora = sc.nextDouble();
+		System.out.println("Informe o preço por dia: ");
+		double precoPorDia = sc.nextDouble();
 		
+		ServicoAluguel sa = new ServicoAluguel(precoPorDia, precoPorHora, new BrasilTaxaServico());
 		
+		sa.processaPagamento(ac);
 		
+		System.out.println("Pagamento:");
+		System.out.println("Valor bruto: " + String.format("%.2f", ac.getPagamento().getPagamento()));
+		System.out.println("Taxa: " + String.format("%.2f", ac.getPagamento().getTaxa()));
+		System.out.println("Total: " + String.format("%2f", ac.getPagamento().totalPagamento()));
 		
 		sc.close();
 
