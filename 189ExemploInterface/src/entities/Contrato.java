@@ -1,12 +1,16 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Contrato {
 	
 	private Integer numeroContrato;
 	private Date dataContrato;
 	private Double valorTotalContrato;
+	
+	private List<Parcela> parcelas = new ArrayList<>();
 	
 	public Contrato(Integer numeroContrato, Date dataContrato, Double valorTotalContrato) {
 		this.numeroContrato = numeroContrato;
@@ -37,9 +41,17 @@ public class Contrato {
 	public void setValorTotalContrato(Double valorTotalContrato) {
 		this.valorTotalContrato = valorTotalContrato;
 	}
+
+	public List<Parcela> getParcelas() {
+		return parcelas;
+	}
 	
+	public void addParcela(Parcela parcela) {
+		parcelas.add(parcela);
+	}
 	
-	
-	
+	public void removeParcela(Parcela parcela) {
+		parcelas.remove(parcela);
+	}
 
 }
