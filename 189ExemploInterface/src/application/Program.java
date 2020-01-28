@@ -7,6 +7,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Contrato;
+import entities.Parcela;
+import services.ServicoContrato;
+import services.ServicoPaypal;
 
 public class Program {
 
@@ -29,6 +32,15 @@ public class Program {
 		
 		System.out.print("Informe a quantidade de paercelas: ");
 		int qtdeParcelas = sc.nextInt();
+		
+		ServicoContrato servicoContrato = new ServicoContrato(new ServicoPaypal());
+		
+		servicoContrato.processaContrato(contrato, qtdeParcelas);
+		
+		System.out.println("Parcelas: ");
+		for (Parcela x : contrato.getParcelas()) {
+			System.out.println(x);
+		}
 
 	}
 
