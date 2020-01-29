@@ -41,6 +41,8 @@ public class Program {
 		for (Parcela x : contrato.getParcelas()) {
 			System.out.println(x);
 		}
+		
+		sc.close();
 
 	}
 
