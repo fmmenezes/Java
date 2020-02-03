@@ -7,26 +7,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import entities.Empregado;
+
 public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		List<String> lista = new ArrayList<>();
-		String caminhoDoArquivo = "C:\\workspace\\eclipse\\udemy-java\\192InterfaceComparable\\arquivo\\in.txt";
+		// List<String> lista = new ArrayList<>();
+		List<Empregado> lista = new ArrayList<>();
+		String caminhoDoArquivo = "C:\\workspace\\eclipse\\udemy-java\\192InterfaceComparable\\arquivo\\in2.csv";
 		
 		try(BufferedReader br = new BufferedReader(new FileReader(caminhoDoArquivo))){
 			
-			String nome = br.readLine();
-			while (nome != null) {
-				lista.add(nome);
-				nome = br.readLine();
+			// String nome = br.readLine();
+			String empregadoCsv = br.readLine();
+
+			while (empregadoCsv != null) {
+				String[] linhaEmpregado = empregadoCsv.split(",");
+				lista.add(new Empregado(linhaEmpregado[0],Double.parseDouble(linhaEmpregado[1])));
+				empregadoCsv = br.readLine();
 			}
 			
 			Collections.sort(lista);
 			
-			for(String linha: lista) {
-				System.out.println(linha);
+			for(Empregado linha: lista) {
+				System.out.println(linha.getNome() + ", " + linha.getSalario());
 				
 			}
 			
